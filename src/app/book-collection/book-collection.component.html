@@ -1,0 +1,54 @@
+
+<div class="  my-3 mx-3 col-7 d-flex align-items-center" style="width: 97%;">
+  <input type="text" class="form-control" [(ngModel)]="search" (keyup)="searchFilter($event)">
+  <div class="view-toggle d-flex">
+    <button (click)="toggleView('grid')" [class.active]="view ==='grid'">Grid</button>
+    <button (click)="toggleView('list')" [class.active]="view==='list'">List</button>
+</div>
+</div>
+
+<div [ngClass]="view + '-view'">
+<div class="book-container" >
+    <div class="book-card" data-bs-toggle="modal" data-bs-target="#myModal" *ngFor="let book of books;let i = index" (click)="onClick(book, i)">
+      <img class="book-image" [src]="book.imageUrl" alt="Book Cover">
+      <div class="book-details">
+        <p class="book-title">{{ book.title }}</p>
+        <p class="book-author">Author: {{ book.author }}</p>
+        <p class="book-genre">Genre: {{ book.genre }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 style="color: black;" class="modal-title">{{selectedBook?.title}}</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="book-container">
+              <img class="selected-book-image" [src]="selectedBook?.imageUrl" alt="Book Cover">
+              <div class="book-details">
+                <p  style="color: black;"class="book-title">{{ selectedBook?.title }}</p>
+                <p style="color: black;"  class="book-author">Author: {{ selectedBook?.author }}</p>
+                <p  class="book-genre">Genre: {{ selectedBook?.genre }}</p>
+              </div>
+            </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  

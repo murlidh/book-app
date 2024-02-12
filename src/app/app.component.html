@@ -1,0 +1,14 @@
+<div class="container-fluid main">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+  <router-outlet></router-outlet>
+  <div>
+    <!-- <button > Turn on {{theme}} mode</button> -->
+  <button (click)="toggleDarkMode()">Turn on {{theme}} mode</button>
+  </div>
+  
+  <app-book-collection></app-book-collection>
+</div>

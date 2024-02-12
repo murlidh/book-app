@@ -1,0 +1,92 @@
+.search-bar {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+  .search-inp {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 25%;
+
+  }
+
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .book-card {
+    width: 250px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 350px;
+  }
+  
+  .book-image {
+    width: 100%;
+    border-radius: 5px;
+    height: 50%;
+  }
+
+  .selected-book-image {
+    width: 30%;
+    border-radius: 5px;
+    height: 40%;
+  }
+  .modal-content {
+   height: 400px;
+}
+  
+  .book-details {
+    margin-top: 10px;
+  }
+  
+  .book-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .book-author {
+    font-size: 16px;
+  }
+  
+  .book-genre {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .grid-view .book-container {
+    justify-content: space-between;
+  }
+  
+  .list-view .book-card {
+    width: 60%;
+    height: 400px;
+  }
+  .view-toggle {
+    width: 100%;
+    margin-left: 20px;
+    justify-content: end;
+}
+  
+  .view-toggle button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .view-toggle button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
