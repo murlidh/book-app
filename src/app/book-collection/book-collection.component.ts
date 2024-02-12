@@ -29,7 +29,7 @@ search:any
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      filter(value => value && value.trim().length >= 1) 
+      filter(value => value && value.trim().length >= 3) 
     ).subscribe(value => {
       this.filteredBooks = this.filterBooks(value);
     });

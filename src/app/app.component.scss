@@ -1,4 +1,20 @@
 .main {
     background-color: var(--background-color);
     color: var(--text-color);
+  
+  button{
+    background-color: lavender;
+    color: black;
+    font-size: 16px;
+    padding: 10px 13px;
+    margin-left: 10px;
+    margin-top: 6px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
   }
+  .toggle{
+width: 9%;
+  }
+}

@@ -1,0 +1,36 @@
+.header {
+    .navbar {
+        width: 100% !important;
+    }
+
+    .utl {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        background-color: coral;
+
+        li {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: coral;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 18px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 6px;
+            a{
+                text-decoration: none;
+                color: #ffff;
+            }
+        }
+        li:hover {
+            background-color:khaki;
+            
+            a:hover{
+                color: black;
+            }
+          }
+}
+}

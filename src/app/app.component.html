@@ -1,14 +1,15 @@
 <div class="container-fluid main">
-  <div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-  </div>
-  <router-outlet></router-outlet>
-  <div>
+  <div style="display: flex;">
+  <app-header style="width: 91%;"></app-header>
+ 
     <!-- <button > Turn on {{theme}} mode</button> -->
-  <button (click)="toggleDarkMode()">Turn on {{theme}} mode</button>
+  <div class="toggle">
+    <button (click)="toggleDarkMode()"> {{theme}} mode</button>
+   </div>
   </div>
+
   
-  <app-book-collection></app-book-collection>
-</div>
+  <router-outlet></router-outlet>
+  <!-- <app-book-collection></app-book-collection> -->
+</div> 
+
