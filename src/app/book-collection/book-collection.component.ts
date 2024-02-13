@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../book.service';
-import { Book } from '../book.model';
 import { FormControl } from '@angular/forms';
+
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
+
+import { Book } from '../book.model';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book-collection',
@@ -19,22 +21,21 @@ selectBook: any;
 selectedBook:any
 search:any
 
-
   constructor(private bookService: BookService){}
 
   ngOnInit(): void {
-    this.books=this.bookService.getBooks();
-    this.filteredBooks = [...this.books];
+this.getBooks()
 
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
-      filter(value => value && value.trim().length >= 3) 
+      filter(value => value && value.trim().length >= 3)
     ).subscribe(value => {
       this.filteredBooks = this.filterBooks(value);
     });
+
   }
- 
+
   toggleView(view: 'grid' | 'list'): void {
     this.view = view;
   }
@@ -42,7 +43,7 @@ search:any
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
     this.filteredBooks = this.filterBooks(filterValue);
   }
-  
+
   filterBooks(value: string): Book[] {
     return (this.books??[]).filter((book:any) =>
       book.title.toLowerCase().includes(value) ||
@@ -51,7 +52,7 @@ search:any
     );
   }
   displayFn(book?: Book): string | undefined {
-    return book ? book.title : undefined; 
+    return book ? book.title : undefined;
   }
   onInputBlur(): void {
     setTimeout(() => {
@@ -62,10 +63,17 @@ search:any
     this.selectedBook = book
   }
 
-  
+  getBooks(){
+    this.bookService.getBooks().subscribe(books=>{
+      this.books=books
+    })
+  }
+
   searchFilter(event: any) {
-    this.books = this.bookService.getBooks(); // Assuming getBooks() returns the full list of books
-    this.books = this.books.filter((item: any) => item.title.toLowerCase().includes(this.search.toLowerCase()));
+    this.books = this.bookService.getBooks();
+    console.log(this,this.books)
+    this.books = this.books.filter((item: any) =>
+    item.title.toLowerCase().includes(this.search.toLowerCase()));
 }
 }
 

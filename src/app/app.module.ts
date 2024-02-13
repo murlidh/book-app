@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookCollectionComponent } from './book-collection/book-collection.component';
-import { FormsModule } from '@angular/forms';
+
 import { AddBookComponent } from './add-book/add-book.component';
+import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
@@ -19,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
