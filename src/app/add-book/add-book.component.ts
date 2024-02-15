@@ -21,6 +21,7 @@ export class AddBookComponent {
       author: form.value.author,
       genre: form.value.genre,
       imageUrl: form.value.imageUrl,
+      description: form.value.description
     };
     this.booService.addBooks(newBook).subscribe(Response=>{
       console.log(Response);

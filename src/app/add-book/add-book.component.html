@@ -18,6 +18,10 @@
             <input type="text" id="genre" name="genre"ngModel placeholder="Enter genre">
         </div>
         <div class="form-group">
+          <label for="description">description:</label>
+          <input type="text" id="description" name="description"ngModel placeholder="Enter description">
+      </div>
+        <div class="form-group">
             <input type="submit"[disabled]="bookForm.invalid" value="Submit">
         </div>
     </form>

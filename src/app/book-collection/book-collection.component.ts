@@ -6,6 +6,7 @@ import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 import { Book } from '../book.model';
 import { BookService } from '../book.service';
 
+
 @Component({
   selector: 'app-book-collection',
   templateUrl: './book-collection.component.html',
@@ -39,10 +40,6 @@ this.getBooks()
   toggleView(view: 'grid' | 'list'): void {
     this.view = view;
   }
-  applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
-    this.filteredBooks = this.filterBooks(filterValue);
-  }
 
   filterBooks(value: string): Book[] {
     return (this.books??[]).filter((book:any) =>
@@ -51,9 +48,7 @@ this.getBooks()
       book.genre.toLowerCase().includes(value)
     );
   }
-  displayFn(book?: Book): string | undefined {
-    return book ? book.title : undefined;
-  }
+
   onInputBlur(): void {
     setTimeout(() => {
       this.showAutocompleteOptions = false;
@@ -69,11 +64,13 @@ this.getBooks()
     })
   }
 
-  searchFilter(event: any) {
-    this.books = this.bookService.getBooks();
-    console.log(this,this.books)
-    this.books = this.books.filter((item: any) =>
-    item.title.toLowerCase().includes(this.search.toLowerCase()));
+
+searchFilter(event: any) {
+  this.bookService.getBooks().subscribe(books => {
+    this.books = books.filter((item: any) =>
+      item.title.toLowerCase().includes(this.search.toLowerCase())
+    );
+  });
 }
 }
 

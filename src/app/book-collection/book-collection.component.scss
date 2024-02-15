@@ -19,7 +19,7 @@
     justify-content: space-around;
     margin-top: 20px;
   }
-  
+
   .book-card {
     width: 250px;
     margin-bottom: 20px;
@@ -29,7 +29,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     height: 350px;
   }
-  
+
   .book-image {
     width: 100%;
     border-radius: 5px;
@@ -41,32 +41,30 @@
     border-radius: 5px;
     height: 40%;
   }
-  .modal-content {
-   height: 400px;
-}
-  
+
+
   .book-details {
     margin-top: 10px;
   }
-  
+
   .book-title {
     font-size: 18px;
     font-weight: bold;
   }
-  
+
   .book-author {
     font-size: 16px;
   }
-  
+
   .book-genre {
     font-size: 14px;
     color: #666;
   }
-  
+
   .grid-view .book-container {
     justify-content: space-between;
   }
-  
+
   .list-view .book-card {
     width: 60%;
     height: 400px;
@@ -76,7 +74,7 @@
     margin-left: 20px;
     justify-content: end;
 }
-  
+
   .view-toggle button {
     padding: 5px 10px;
     margin-right: 10px;
@@ -84,9 +82,9 @@
     border: none;
     border-radius: 5px;
   }
-  
+
   .view-toggle button.active {
     background-color: #007bff;
     color: white;
   }
-  
+
