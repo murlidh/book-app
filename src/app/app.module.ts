@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { HeaderComponent } from './header/header.component';
+import { DoogsComponent } from './doogs/doogs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookCollectionComponent,
     AddBookComponent,
-    HeaderComponent
+    HeaderComponent,
+    DoogsComponent
   ],
   imports: [
     BrowserModule,

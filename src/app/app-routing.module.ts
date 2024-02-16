@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { HeaderComponent } from './header/header.component';
+import { DoogsComponent } from './doogs/doogs.component';
 
 const routes: Routes = [
   {path:'header',
@@ -10,7 +11,9 @@ component:HeaderComponent},
   {path:'book-collect',
 component:BookCollectionComponent},
   {path:'add-book',
-component:AddBookComponent}
+component:AddBookComponent},
+{path:'doogs',
+component:DoogsComponent}
 ];
 
 @NgModule({
