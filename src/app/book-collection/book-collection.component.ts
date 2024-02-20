@@ -6,71 +6,49 @@ import { debounceTime, distinctUntilChanged, filter } from 'rxjs';
 import { Book } from '../book.model';
 import { BookService } from '../book.service';
 
-
 @Component({
   selector: 'app-book-collection',
   templateUrl: './book-collection.component.html',
-  styleUrls: ['./book-collection.component.scss']
+  styleUrls: ['./book-collection.component.scss'],
 })
 export class BookCollectionComponent implements OnInit {
-books:Book[] | any
-filteredBooks: Book[] | undefined;
-searchControl = new FormControl();
-view:'grid' |'list'='grid';
- showAutocompleteOptions: boolean = false;
-selectBook: any;
-selectedBook:any
-search:any
+  books: Book[] | any;
+  filteredBooks: Book[] | undefined;
+  searchControl = new FormControl();
+  view: 'grid' | 'list' = 'grid';
+  showAutocompleteOptions: boolean = false;
+  selectBook: any;
+  selectedBook: any;
+  search: any;
 
-  constructor(private bookService: BookService){}
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
-this.getBooks()
-
-    this.searchControl.valueChanges.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      filter(value => value && value.trim().length >= 3)
-    ).subscribe(value => {
-      this.filteredBooks = this.filterBooks(value);
-    });
-
+    this.getBooks();
   }
 
   toggleView(view: 'grid' | 'list'): void {
     this.view = view;
   }
-
-  filterBooks(value: string): Book[] {
-    return (this.books??[]).filter((book:any) =>
-      book.title.toLowerCase().includes(value) ||
-      book.author.toLowerCase().includes(value) ||
-      book.genre.toLowerCase().includes(value)
-    );
-  }
-
-  onInputBlur(): void {
-    setTimeout(() => {
-      this.showAutocompleteOptions = false;
-    }, 200);
-  }
   onClick(book: any, index: number) {
-    this.selectedBook = book
+    this.selectedBook = book;
+    console.log(this.selectedBook);
   }
 
-  getBooks(){
-    this.bookService.getBooks().subscribe(books=>{
-      this.books=books
-    })
+  getBooks() {
+    this.bookService.getBooks().subscribe((books) => {
+      this.books = books;
+      console.log(this.books);
+    });
   }
 
-
-searchFilter(event: any) {
-  this.bookService.getBooks().subscribe(books => {
-    this.books = books.filter((item: any) =>
-      item.title.toLowerCase().includes(this.search.toLowerCase())
-    );
-  });
+  searchFilter(event: any) {
+    this.bookService.getBooks().subscribe((books) => {
+      this.books = books.filter(
+        (item: any) =>
+          item.title.toLowerCase().includes(this.search.toLowerCase()) ||
+          item.author.toLowerCase().includes(this.search.toLowerCase())
+      );
+    });
+  }
 }
-}
-

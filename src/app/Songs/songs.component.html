@@ -1,0 +1,13 @@
+<div *ngFor="let song of songList$ | async">
+  <img [src]="song.thumbnailUrl" alt="{{ song.title }} thumbnail">
+  <p>{{ song.title }} - {{ song.artistName }}</p>
+</div>
+<div>
+  <!-- <div *ngIf="linksByPlatform$ | async as linksByPlatform">
+    <div *ngFor="let platform of Object.keys(linksByPlatform)">
+      <h3>{{ platform }}</h3>xzz
+      <a *ngFor="let link of linksByPlatform[platform]" [href]="link.url">{{ link.country }}</a>
+    </div>
+  </div> -->
+{{linksByPlatform$ | json}}
+</div>

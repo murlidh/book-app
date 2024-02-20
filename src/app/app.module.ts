@@ -6,10 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { SongsComponent } from './Songs/songs.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { HeaderComponent } from './header/header.component';
-import { DoogsComponent } from './doogs/doogs.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { DoogsComponent } from './doogs/doogs.component';
     BookCollectionComponent,
     AddBookComponent,
     HeaderComponent,
-    DoogsComponent
+    SongsComponent,
+    HomeComponent
+
   ],
   imports: [
     BrowserModule,

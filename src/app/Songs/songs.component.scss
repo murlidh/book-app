@@ -1,0 +1,27 @@
+/* song-list.component.css */
+
+.song-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.song-item {
+  margin: 10px;
+  width: 200px;
+}
+
+.song-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.song-title {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.song-artist {
+  font-style: italic;
+  color: #888;
+  margin-top: 3px;
+}
